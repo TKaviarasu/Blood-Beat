@@ -1,0 +1,150 @@
+/* Global font style */
+body {
+  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  margin: 0 -20px; 
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.home-title {
+  font-size: 32px;
+  animation: slideInFromLeft 1.5s ease-in-out;
+}
+
+.home-description {
+  font-size: 18px;
+}
+
+.home-header {
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.home-background {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.home-overlay {
+  color: white;
+  padding: 20px;
+}
+
+.content-section {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+  margin-top: -19px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  animation: scaleUp 1s ease-in-out;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.donor-image {
+  width: 250px;
+  height: 200px;
+  margin-left: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.donor-image:hover {
+  transform: scale(1.05);
+}
+
+.content-text {
+  margin-left: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-left: 300px;
+  font-size: larger;
+  animation: slideInFromRight 1.5s ease-in-out;
+}
+
+.content-title {
+  color: black;
+}
+
+.content-paragraph {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.organ-donation-section {
+  background-color: #f8f8f8;
+  padding: 40px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.organ-donation-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.organ-donation-description {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.donate-button {
+  background-color: sandybrown;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #c72c3b;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}

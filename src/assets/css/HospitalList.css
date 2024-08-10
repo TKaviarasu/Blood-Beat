@@ -1,0 +1,102 @@
+.hospital-list-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hospital-list-container h1 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.hospital-list-container p {
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container label {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search-container input {
+    padding: 10px;
+    border: 1px solid sandybrown;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    background-color: wheat;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: rgb(227, 54, 54); /* Change to your preferred hover color */
+    color: white; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.hospital-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.hospital-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin-bottom: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hospital-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hospital-item h2 {
+    color: #333;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.hospital-item p {
+    margin: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.hospital-item .location {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #139809;
+    transition: color 0.3s ease;
+}
+
+.hospital-item:hover h2,
+.hospital-item:hover p,
+.hospital-item:hover .location {
+    color:rgb(227, 54, 54); /* Change the color to your preferred hover color */
+}

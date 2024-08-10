@@ -1,0 +1,179 @@
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: 'Arial, sans-serif';
+}
+
+.sidebar {
+  width: 250px;
+  background: wheat;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: wheat;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.dashboard-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar-menu li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.divider {
+  border-bottom: 5px solid black;
+  width: 100%;
+  margin: 0;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #000000;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.menu-icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.dropdown-icon {
+  font-size: 1.2rem;
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  background: wheat;
+}
+
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  color: #000000;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover {
+  background: #c72c3b;
+  color: rgb(255, 255, 255);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 3rem;
+  background: #ecf0f1;
+  overflow-y: auto;
+}
+
+.welcome-container {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.welcome-container h1:hover {
+  color: #c72c3b;
+  transform: scale(1.1);
+}
+
+.admin-list {
+  margin-top: 2rem;
+  width: 650px;
+}
+
+.admin-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.admin-list ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+
+.admin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-item:hover {
+  background: #f0f0f0;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-image {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1rem;
+}
+
+.admin-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-name {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.admin-email,
+.admin-role,
+.admin-address,
+.admin-contact {
+  margin: 0.2rem 0;
+}
+
+.contact-icon {
+  margin-right: 0.5rem;
+}

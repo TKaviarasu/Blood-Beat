@@ -1,0 +1,123 @@
+/* General Styles */
+.loginbody {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.loginform-container {
+  background-color: wheat; /* Slightly more opaque for better readability */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+  width: 263px;
+  height: 380px;
+  margin-top: 67px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-header {
+  text-align: center;
+}
+
+.loginform-group {
+  margin-bottom: 20px; /* Increased spacing for better separation */
+  position: relative;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.loginicon {
+  position: absolute;
+  left: 10px;
+  color: #333;
+}
+
+.input {
+  width: 100%; /* Full width for better alignment */
+  padding: 12px 12px 12px 35px; /* Increased left padding to make space for the icon */
+  color: #333; /* Darker text color */
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light background color */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for focus effect */
+}
+
+.input:focus {
+  border-color: rgb(207, 16, 16);
+  box-shadow: 0 0 5px rgba(207, 16, 16, 0.5); /* Adjusted box-shadow for focus effect */
+  outline: none; /* Remove default outline */
+}
+
+.loginsubmit-button {
+  width: 45%; /* Full width for better alignment */
+  padding: 12px;
+  margin-left: 65px;
+  background-color: sandybrown;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.loginsubmit-button:hover {
+  background-color: #c72c3b;
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.loginsubmit-button:active {
+  transform: translateY(0); /* Reset lift effect on click */
+}
+
+.admin-login-btn { /* Updated class name here */
+  width: 65%; /* Full width for better alignment */
+  padding: 12px;
+  margin-left: 45px;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.admin-login-btn:hover { /* Updated class name here */
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+.admin-login-btn:active { /* Updated class name here */
+  transform: translateY(0); /* Reset lift effect on click */
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9em; /* Slightly smaller font size */
+}
+
+.signup-link a {
+  color: #c72c3b;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline; /* Underline effect on hover */
+}

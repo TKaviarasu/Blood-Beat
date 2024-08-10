@@ -1,0 +1,48 @@
+.section {
+  background: wheat;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chart-box {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.ana {
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 80px;
+  margin-left: 437px;
+}
+
+.ana:hover {
+  color:#e63946;
+}
+
+.chart-box:hover {
+  background: #f1f1f1;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+.chart-container canvas {
+  max-height: 400px;
+}

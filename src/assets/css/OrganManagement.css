@@ -1,0 +1,100 @@
+.organ-management-container {
+    padding: 30px;
+    background-color: wheat;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease-out;
+    max-width: 1200px; /* Optional: limit the width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.title-container {
+    margin-bottom: 30px;
+    width: 1100px;
+    text-align: center;
+    transition: color 0.3s; /* Smooth color change */
+}
+
+.title-container:hover .organ-management-title {
+    color: #e63946; /* Change text color on hover */
+}
+
+.organ-management-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+}
+
+.organ-management-section {
+    margin-bottom: 60px; /* Increased margin to add more gap between sections */
+}
+
+.organ-management-section-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.search-section {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-input-field {
+    padding: 12px; /* Increased padding */
+    font-size: 16px; /* Increased font size */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 80%; /* Increased width */
+    max-width: 600px; /* Increased max width */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input-field:focus {
+    border-color: #e63946;
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.3);
+    outline: none;
+}
+
+.summary-card-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.summary-card-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.summary-card-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.summary-card-value {
+    font-size: 26px;
+    color: #e63946;
+    font-weight: bold;
+}
+
+.table-section {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,116 @@
+:root {
+    --primary-red: #e63946;
+    --dark-red: #a4161a;
+    --light-red: #f4a5a8;
+    --neutral-white: #ffffff;
+    --dark-grey: #333333;
+    --light-grey: #f7f7f7;
+}
+
+.contact-container-custom {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--light-grey);
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-grey);
+}
+
+.contact-header-custom {
+    background-color: wheat;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 20px;
+}
+
+.contact-title-custom {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.contact-content-custom {
+    background-color: var(--neutral-white);
+    padding: 30px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.contact-info-custom, .contact-form-custom {
+    flex: 1;
+}
+
+.info-title-custom, .form-title-custom {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-text-custom, .form-group-custom label {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.info-details-custom p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.contact-form-custom form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-custom {
+    margin-bottom: 15px;
+}
+
+.form-group-custom input, .form-group-custom textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.submit-button-custom {
+    background-color: sandybrown;
+    color: var(--neutral-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button-custom:hover {
+    background-color: #c72c3b;
+}
+
+.map-container-custom {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--neutral-white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.map-title-custom {
+    color: sandybrown;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.map-iframe-custom {
+    width: 100%;
+    height: 315px; /* Adjust height as needed */
+    border: 0;
+}

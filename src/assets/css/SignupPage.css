@@ -1,0 +1,134 @@
+.signup-page-body {
+  font-family: 'Arial', sans-serif;
+  background-color: wheat;
+  margin: 0;
+  padding: 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  height: 80vh;
+  background-color: wheat;
+  padding: 20px;
+  position: relative;
+}
+
+.signup-form-container {
+  width: 300px;
+  height: 460px;
+  padding: 15px;
+  background-color: #f0f2f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.signup-title {
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #000000;
+}
+
+.signup-input-container {
+  position: relative;
+  width: 85%;
+  margin-bottom: 10px;
+}
+
+.signup-input {
+  width: 85%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.signup-button {
+  width: 65%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-button {
+  background-color: #db4437;
+  color: #fff;
+  border-radius: 25px;
+}
+
+.google-button:hover {
+  background-color: #c23321;
+}
+
+.facebook-button {
+  background-color: #4267b2;
+  color: #fff;
+  border-radius: 25px;
+}
+
+.facebook-button:hover {
+  background-color: #365899;
+}
+
+.submit-button {
+  background-color: sandybrown;
+  color: #fff;
+  border-radius: 25px;
+  width: 50%;
+}
+
+.submit-button:hover {
+  background-color: #c72c3b;
+}
+
+.signup-separator {
+  margin: 10px 0;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+
+.signup-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.signup-button.submit-button {
+  text-decoration: none;
+  border: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

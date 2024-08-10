@@ -1,0 +1,82 @@
+.blood-request-page {
+    background-color: wheat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px 8px 8px 30px; /* Adjust padding to make space for icons */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+.icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-grey);
+}
+
+.button-container {
+    text-align: center;
+}
+
+form button {
+    padding: 10px 20px;
+    background: sandybrown;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+form button:hover {
+    background: #c72c3b;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Changed color to black */
+}
+
+.small-form-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px; /* Reduced size */
+    font-weight: bold;
+    color: black; /* Changed color to black */
+}
