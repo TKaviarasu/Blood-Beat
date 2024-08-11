@@ -1,0 +1,104 @@
+.organ-request-background {
+    background-color: wheat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.organ-request-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: var(--neutral-white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.organ-request-form .organ-form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.organ-request-form .organ-form-group label {
+    display: block;
+    position: relative;
+    font-weight: bold;
+}
+
+.organ-request-form .organ-form-group input,
+.organ-request-form .organ-form-group select,
+.organ-request-form .organ-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    padding-left: 35px; /* Add padding to accommodate the icon */
+    border: 1px solid var(--dark-grey);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.organ-request-form .organ-form-group input:focus,
+.organ-request-form .organ-form-group select:focus,
+.organ-request-form .organ-form-group textarea:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.organ-request-form .organ-form-group.organ-checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.organ-request-form .organ-form-group.organ-checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.organ-request-form .organ-form-group.organ-checkbox-group label {
+    font-weight: normal;
+}
+
+.organ-request-form .organ-form-group.organ-checkbox-group a {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+.organ-request-form .organ-form-group.organ-checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.organ-request-form .organ-submit-button-custom {
+    background-color: sandybrown;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 150px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.organ-request-form .organ-submit-button-custom:hover {
+    background-color:#e63946;
+}
+
+
+
+.organ-request-form-title {
+    font-size: 2rem;
+    color: var(--primary-red);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.organ-request-form .organ-input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(0, 0, 0);
+}

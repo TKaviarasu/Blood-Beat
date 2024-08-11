@@ -11,8 +11,9 @@ form {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: 420px;
     margin: 50px auto;
+    position: relative;
 }
 
 form div {
@@ -47,36 +48,46 @@ form textarea {
     color: var(--dark-grey);
 }
 
+.terms-checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px; /* Adds space above the checkbox */
+}
+
+.terms-checkbox-input {
+  margin-left: -200px;
+}
+
+.terms-checkbox-label {
+    font-size: 14px;
+margin-right: -100px;
+}
+
 .button-container {
     text-align: center;
+    margin-top: 20px;
 }
 
 form button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background: sandybrown;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100px;
+    font-size: 14px;
+    width: auto;
 }
 
 form button:hover {
     background: #c72c3b;
 }
 
-.form-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: black; /* Changed color to black */
-}
-
 .small-form-title {
     text-align: center;
     margin-bottom: 15px;
-    font-size: 20px; /* Reduced size */
+    font-size: 20px;
     font-weight: bold;
-    color: black; /* Changed color to black */
+    color: black;
 }

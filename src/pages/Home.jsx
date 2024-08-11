@@ -28,6 +28,10 @@ function Home() {
         navigate('/organ-donation'); // Navigate to the OrganDonation page
     };
 
+    const handleRequestClick = () => {
+        navigate('/organ-request'); // Navigate to the OrganRequest page
+    };
+
     return (
         <div>
             <NavBar />
@@ -61,10 +65,14 @@ function Home() {
             <div className="organ-donation-section">
                 <h2 className="organ-donation-title">Become an Organ Donor</h2>
                 <br></br>
-                <p className="organ-donation-description">Organ donation after death is a profound gift that offers hope and new life to those suffering from severe illnesses or injuries. By choosing to donate your organs, you ensure that your legacy extends beyond your lifetime, providing critical support to patients in need. Each donation can save multiple lives, from heart and liver transplants to kidney and lung replacements.
-
-The process of organ donation is carried out with the utmost respect and care, ensuring that your wishes are honored. Medical professionals handle the donation process with precision and compassion, adhering to strict ethical guidelines. This act of generosity not only impacts the lives of recipients but also provides solace to families, knowing their loved one made a meaningful difference.</p>
+                <p className="organ-donation-description">
+                    Organ donation after death is a profound gift that offers hope and new life to those suffering from severe illnesses or injuries. By choosing to donate your organs, you ensure that your legacy extends beyond your lifetime, providing critical support to patients in need. Each donation can save multiple lives, from heart and liver transplants to kidney and lung replacements.
+                    <br /><br />
+                    The process of organ donation is carried out with the utmost respect and care, ensuring that your wishes are honored. Medical professionals handle the donation process with precision and compassion, adhering to strict ethical guidelines. This act of generosity not only impacts the lives of recipients but also provides solace to families, knowing their loved one made a meaningful difference.
+                </p>
                 <button className="donate-button" onClick={handleDonateClick}>Donate Organs</button>
+                <br />
+                <button className="request-button" onClick={handleRequestClick}>Request Organs</button>
             </div>
             <Footer />
         </div>

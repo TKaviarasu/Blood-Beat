@@ -1,82 +1,130 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../assets/css/UserManagement.css';
-import {
-  FaUserEdit,
-  FaTrashAlt,
-  FaEnvelope,
-  FaPhone,
-  FaBriefcase,
-  FaMapMarkerAlt,
-} from 'react-icons/fa';
 
-const users = [
-  {
-    name: 'John Doe',
-    email: 'johndoe@example.com',
-    role: 'User',
-    address: 'New York, USA',
-    contact: '111-222-3333',
-  },
-  {
-    name: 'Jane Smith',
-    email: 'janesmith@example.com',
-    role: 'User',
-    address: 'Los Angeles, USA',
-    contact: '444-555-6666',
-  },
-  {
-    name: 'Alice Johnson',
-    email: 'alicej@example.com',
-    role: 'User',
-    address: 'Chicago, USA',
-    contact: '777-888-9999',
-  },
-  {
-    name: 'Bob Brown',
-    email: 'bobb@example.com',
-    role: 'User',
-    address: 'Houston, USA',
-    contact: '000-111-2222',
-  },
-];
+const AdminDashboard = () => {
+  const [users, setUsers] = useState([]);
+  const [editUser, setEditUser] = useState(null);
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPhone, setUserPhone] = useState('');
 
-const UserManagement = () => {
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/users');
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Failed to fetch users', error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+  const handleEdit = (user) => {
+    setEditUser(user.id);
+    setUserName(user.fullname);
+    setUserEmail(user.email);
+    setUserPhone(user.phoneno);
+  };
+
+  const handleSave = async () => {
+    try {
+      await axios.put(`http://localhost:8080/users/${editUser}`, {
+        fullname: userName,
+        email: userEmail,
+        phoneno: userPhone,
+      });
+      const updatedUsers = users.map(user =>
+        user.id === editUser ? { ...user, fullname: userName, email: userEmail, phoneno: userPhone } : user
+      );
+      setUsers(updatedUsers);
+      setEditUser(null);
+    } catch (error) {
+      console.error('Failed to update user', error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8080/users/${id}`);
+      setUsers(users.filter(user => user.id !== id));
+    } catch (error) {
+      console.error('Failed to delete user', error);
+    }
+  };
+
   return (
-    <div className="user-management">
-      <h1>User Management</h1>
-      <div className="user-list">
-        <ul>
-          {users.map((user, index) => (
-            <li key={index} className="user-item">
-              <div className="user-details">
-                <h3 className="user-name">{user.name}</h3>
-                <p className="user-email">
-                  <FaEnvelope className="user-icon" /> <b>Email:</b> {user.email}
-                </p>
-                <p className="user-role">
-                  <FaBriefcase className="user-icon" /> <b>Role:</b> {user.role}
-                </p>
-                <p className="user-address">
-                  <FaMapMarkerAlt className="user-icon" /> <b>Address:</b> {user.address}
-                </p>
-                <p className="user-contact">
-                  <FaPhone className="user-icon" /> <b>Contact:</b> {user.contact}
-                </p>
-              </div>
-              <div className="user-actions">
-                <button className="edit-btn">
-                  <FaUserEdit /> Edit
-                </button>
-                <button className="delete-btn">
-                  <FaTrashAlt /> Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+    <div className="admin-dashboard-container">
+      <h2 className="admin-dashboard-title">Users List</h2>
+      <div className="user-list-container">
+        <table className="user-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map(user => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>
+                  {editUser === user.id ? (
+                    <input
+                      type="text"
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
+                    />
+                  ) : (
+                    user.fullname
+                  )}
+                </td>
+                <td>
+                  {editUser === user.id ? (
+                    <input
+                      type="email"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
+                    />
+                  ) : (
+                    user.email
+                  )}
+                </td>
+                <td>
+                  {editUser === user.id ? (
+                    <input
+                      type="text"
+                      value={userPhone}
+                      onChange={(e) => setUserPhone(e.target.value)}
+                    />
+                  ) : (
+                    user.phoneno
+                  )}
+                </td>
+                <td>
+                  {editUser === user.id ? (
+                    <>
+                      <button className="action-button button-save" onClick={handleSave}>Save</button>
+                      <button className="action-button button-cancel" onClick={() => setEditUser(null)}>Cancel</button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="action-button button-edit" onClick={() => handleEdit(user)}>Edit</button>
+                      <button className="action-button button-delete" onClick={() => handleDelete(user.id)}>Delete</button>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 
-export default UserManagement;
+export default AdminDashboard;

@@ -35,11 +35,11 @@ const SignupPage = () => {
     } else {
       setErrorMessage('');
       try {
-        const response = await axios.post('http://localhost:8080/users/signup', {
-          username: fullName,
+        const response = await axios.post('http://localhost:8080/signup', {
+          fullname: fullName,
           email: email,
           password: password,
-          phoneNumber: phoneNumber,
+          phoneno: phoneNumber,
         });
         if (response.status === 200) {
           alert('Signed up successfully');
@@ -51,6 +51,7 @@ const SignupPage = () => {
       }
     }
   };
+  
   
   return (
     <div className="signup-container">

@@ -1,12 +1,12 @@
 /* Global font style */
 body {
-  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+  font-family: 'Arial', sans-serif;
 }
 
 .home-container {
   text-align: center;
   padding: 20px;
-  margin: 0 -20px; 
+  margin: 0 -20px;
   justify-content: center;
   align-items: center;
   background-color: wheat;
@@ -127,6 +127,22 @@ body {
 
 .donate-button:hover {
   background-color: #c72c3b;
+}
+
+.request-button {
+  background-color: teal;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px; /* Add some space between the buttons */
+}
+
+.request-button:hover {
+  background-color:#c72c3b ;
 }
 
 @keyframes fadeIn {

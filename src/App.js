@@ -11,18 +11,14 @@ import Contact from './pages/Contact';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import AdminDashboard from './pages/AdminDashboard';
-import BloodManagement from './pages/BloodManagement';
+import BloodManagement from './pages/BloodManagement'; 
 import OrganManagement from './pages/OrganManagement';
 import Analysis from './pages/Analysis';
 import AdminLogin from './pages/AdminLogin';
-import OrganDonation from './pages/OrganDonation'; // Import OrganDonation
+import OrganDonation from './pages/OrganDonation';
 import HospitalTable from './pages/HospitalTable';
 import UserManagement from './pages/UserManagement';
-
-// Inside the Routes component
-
-
-
+import OrganRequest from './pages/OrganRequest';
 
 function App() {
   return (
@@ -45,9 +41,10 @@ function App() {
           <Route path="/organ-management" element={<OrganManagement />} />
           <Route path="/analysis" element={<Analysis />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/organ-donation" element={<OrganDonation />} /> {/* Add this line */}
-          <Route path="/hospital/:name" element={<HospitalTable/>} />
+          <Route path="/organ-donation" element={<OrganDonation />} />
+          <Route path="/hospital/:name" element={<HospitalTable />} />
           <Route path="/user-management" element={<UserManagement />} />
+          <Route path="/organ-request" element={<OrganRequest />} />
         </Routes>
       </Router>
     </div>

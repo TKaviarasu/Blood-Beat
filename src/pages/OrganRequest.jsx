@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../assets/css/OrganDonation.css';
+import '../assets/css/OrganRequest.css'; // Update the CSS path
 import Footer from '../components/Footer';
 import { NavBar } from '../components/Navbar';
 import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaHeartbeat } from 'react-icons/fa';
 
-const OrganDonation = () => {
+const OrganRequest = () => {
     const [formData, setFormData] = useState({
         donorName: '',
         donorId: '',
@@ -30,7 +30,7 @@ const OrganDonation = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.termsAccepted) {
-            alert('Organ Donate Form Submitted Successfully');
+            alert('Organ Request Form Submitted Successfully');
             console.log(formData);
         } else {
             alert('You must accept the terms and conditions to submit the form.');
@@ -38,23 +38,21 @@ const OrganDonation = () => {
     };
 
     return (
-        <div className="organ-donor-background">
+        <div className="organ-request-background">
             <NavBar />
-            <div className="organ-donor-form-container">
-                <div className="organ-donor-form-title">Organ Donation Form</div>
-                <form onSubmit={handleSubmit} className="organ-donor-form">
+            <div className="organ-request-form-container">
+                <div className="organ-request-form-title">Organ Request Form</div>
+                <form onSubmit={handleSubmit} className="organ-request-form">
                     <div className="organ-form-group">
-                        <label htmlFor="donorName">
+                        <label htmlFor="Patient Name">
                             <FaUser className="organ-input-icon" />
                             <input
-                                type="text"
-                                id="donorName"
-                                name="donorName"
-                                placeholder="Donor Name"
-                                value={formData.donorName}
-                                onChange={handleChange}
-                                required
-                            />
+                        type="text"
+                        name="patientName"
+                        placeholder="Patient Name"
+                        value={formData.patientName}
+                        onChange={handleChange}
+                    />
                         </label>
                     </div>
                     <div className="organ-form-group">
@@ -94,7 +92,7 @@ const OrganDonation = () => {
                             </select>
                         </label>
                     </div>
-            
+
                     <div className="organ-form-group">
                         <label htmlFor="city">
                             <FaCity className="organ-input-icon" />
@@ -184,4 +182,4 @@ const OrganDonation = () => {
     );
 };
 
-export default OrganDonation;
+export default OrganRequest;

@@ -47,7 +47,6 @@ const HospitalList = () => {
                 <h1>All Hospital Lists</h1>
                 <p>These are all available hospitals. Kindly click on the hospitals to see the details of it.</p>
                 <div className="search-container">
-                    <label htmlFor="searchInput">Enter Hospital Name:</label>
                     <input
                         type="text"
                         id="searchInput"

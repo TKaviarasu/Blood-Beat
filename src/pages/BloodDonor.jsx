@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../assets/css/BloodDonor.css';
 import Footer from '../components/Footer';
 import { NavBar } from '../components/Navbar';
-import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaTint } from 'react-icons/fa'; // Import additional icons
+import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaTint, FaPlus } from 'react-icons/fa'; // Import additional icons
 import bloodDonorImage from '../assets/images/blooddonar.png'; // Import the image
 
 const BloodDonor = () => {
@@ -17,6 +17,7 @@ const BloodDonor = () => {
         address: '',
         description: '',
         bloodGroup: '',
+        quantity: '',
         termsAccepted: false
     });
 
@@ -64,36 +65,6 @@ const BloodDonor = () => {
                         </label>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="donorId">
-                            <FaIdCard className="input-icon" />
-                            <input
-                                type="text"
-                                id="donorId"
-                                name="donorId"
-                                placeholder="Donor ID"
-                                value={formData.donorId}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="bloodGroup">
-                            <FaTint className="input-icon" />
-                            <select id="bloodGroup" name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} required>
-                                <option value="">Select Blood Group</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div className="form-group">
                         <label htmlFor="gender">
                             <FaVenusMars className="input-icon" />
                             <select id="gender" name="gender" value={formData.gender} onChange={handleChange} required>
@@ -113,6 +84,22 @@ const BloodDonor = () => {
                                 <option value="26-35">26-35</option>
                                 <option value="36-45">36-45</option>
                                 <option value="46-60">46-60</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="bloodGroup">
+                            <FaTint className="input-icon" />
+                            <select id="bloodGroup" name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} required>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
                             </select>
                         </label>
                     </div>
@@ -186,6 +173,21 @@ const BloodDonor = () => {
                             ></textarea>
                         </label>
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="quantity">
+                            <FaPlus className="input-icon" />
+                            <input
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                placeholder="Quantity (in units)"
+                                value={formData.quantity}
+                                onChange={handleChange}
+                                min="1"
+                                required
+                            />
+                        </label>
+                    </div>
                     <div className="form-group checkbox-group">
                         <input
                             type="checkbox"
@@ -195,7 +197,7 @@ const BloodDonor = () => {
                             onChange={handleChange}
                             required
                         />
-                        <label htmlFor="terms">I accept the <a href="/terms" target="_blank" rel="noopener noreferrer">terms and conditions</a></label>
+                        <span className="terms-checkbox-label">I accept the terms and conditions</span>
                     </div>
                     <button type="submit" className="submit-button-custom">Submit</button>
                 </form>

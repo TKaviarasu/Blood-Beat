@@ -49,22 +49,18 @@
   margin: 0;
 }
 
-.dropdown-header {
+.dropdown-toggle {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   color: #000000;
   text-decoration: none;
-  transition: background 0.3s ease;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
 }
 
 .menu-icon {
   margin-right: 0.75rem;
-  font-size: 1.2rem;
-}
-
-.dropdown-icon {
   font-size: 1.2rem;
 }
 
@@ -167,13 +163,10 @@
   font-size: 1.2rem;
 }
 
-.admin-email,
-.admin-role,
-.admin-address,
-.admin-contact {
-  margin: 0.2rem 0;
+.admin-email, .admin-role, .admin-address, .admin-contact {
+  margin: 0.5rem 0;
 }
 
-.contact-icon {
+.admin-icon, .contact-icon {
   margin-right: 0.5rem;
 }

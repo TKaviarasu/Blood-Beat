@@ -27,7 +27,7 @@ const LoginPage = () => {
       alert(message);
     } else {
       try {
-        const response = await axios.post('http://localhost:8080/users/login/email', {
+        const response = await axios.post('http://localhost:8080/login', {
           email: email,
           password: password
         });
@@ -47,6 +47,7 @@ const LoginPage = () => {
       }
     }
   };
+  
   
 
   const handleAdminLoginClick = () => {
