@@ -50,7 +50,7 @@
 }
 
 .about-content h3 {
-    color: #1d3557;
+    color: #000000;
     font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -58,7 +58,7 @@
 }
 
 .about-content h3:hover {
-    color: #457b9d;
+    color: sandybrown;
     transform: scale(1.05);
 }
 
@@ -72,9 +72,14 @@
 }
 
 .about-content p strong {
-    color: #1d3557;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
+
+.about-content p strong:hover{
+    color: sandybrown;
+}
+
 
 .content-image {
     display: block;

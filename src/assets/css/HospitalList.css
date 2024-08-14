@@ -1,6 +1,6 @@
 .hospital-list-container {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
@@ -19,12 +19,6 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-}
-
-.search-container label {
-    margin-right: 10px;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 .search-container input {
@@ -56,22 +50,24 @@
 .hospital-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between; /* Adjusted to space items evenly */
+    gap: 50px; /* Reduced gap to decrease horizontal spacing */
 }
 
 .hospital-item {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 18px; /* Adjusted padding */
+    border: 2px solid sandybrown; /* Added border color */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    margin-bottom: 20px;
+    width: 300px;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hospital-item:hover {
     transform: translateY(-10px);
+    border: 2px solid rgb(230, 54, 31);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -98,5 +94,5 @@
 .hospital-item:hover h2,
 .hospital-item:hover p,
 .hospital-item:hover .location {
-    color:rgb(227, 54, 54); /* Change the color to your preferred hover color */
+    color: rgb(227, 54, 54); /* Change the color to your preferred hover color */
 }

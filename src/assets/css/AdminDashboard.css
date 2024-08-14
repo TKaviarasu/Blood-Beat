@@ -164,9 +164,6 @@
 }
 
 .admin-email, .admin-role, .admin-address, .admin-contact {
-  margin: 0.5rem 0;
+  margin: 0.2rem 0;
 }
 
-.admin-icon, .contact-icon {
-  margin-right: 0.5rem;
-}

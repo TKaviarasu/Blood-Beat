@@ -50,9 +50,9 @@ function Home() {
                         <img src={img1} alt="Donor 1" className="donor-image" />
                         <img src={img2} alt="Donor 2" className="donor-image" />
                     </div>
-                    <div className="content-text">
-                        <h1 className="content-title">Unleash Your Inner Hero</h1>
-                        <p className="content-paragraph">
+                    <div className="contents-text">
+                        <h1 className="contents-title">Unleash Your Inner Hero</h1>
+                        <p className="contents-paragraph">
                             * Embark on your journey to becoming a life-saver through the simple act of donating blood. Blood donation is an extraordinary gesture of compassion that can make a profound difference.<br /><br />
                             * By donating blood, you supply a crucial resource that hospitals and medical facilities depend on to care for patients in critical need. Your contribution can truly save lives.
                             <br></br>

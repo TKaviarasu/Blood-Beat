@@ -60,8 +60,8 @@ const BloodManagement = () => {
             {
                 label: 'Quantity of Blood Requested',
                 data: chartData.values,
-                backgroundColor: '#00796b',
-                borderColor: '#004d40',
+                backgroundColor: 'sandybrown', // Changed color
+                borderColor: 'sandybrown', // Changed color
                 borderWidth: 1
             }
         ]
@@ -95,16 +95,23 @@ const BloodManagement = () => {
 
     return (
         <div className="blood-management">
-            <h2>Blood Management</h2>
+            <h2>Blood Request Management</h2>
+            <br></br>
+            <br></br>
             <div className="blood-requests-table">
-                <h3>Blood Requests</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Patient Name</th>
                             <th>Blood Group</th>
-                            <th>City</th>
                             <th>Quantity</th>
+                            <th>Patient Age</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Phone Number</th>
+                            <th>Hospital Address</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,13 +119,20 @@ const BloodManagement = () => {
                             <tr key={index}>
                                 <td>{request.patientName}</td>
                                 <td>{request.bloodGroup}</td>
-                                <td>{request.city}</td>
                                 <td>{request.quantity}</td>
+                                <td>{request.patientAge}</td>
+                                <td>{request.gender}</td>
+                                <td>{request.email}</td>
+                                <td>{request.city}</td>
+                                <td>{request.phoneNumber}</td>
+                                <td>{request.hospitalAddress}</td>
+                                <td>{request.description}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+           
             <div className="blood-request-chart">
                 <Bar data={data} options={options} />
             </div>

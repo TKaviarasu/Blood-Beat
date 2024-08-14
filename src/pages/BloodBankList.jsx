@@ -1,9 +1,9 @@
-// src/BloodBankList.js
 import React, { useState } from 'react';
 import '../assets/css/BloodBankList.css';
 import blood_drop from '../assets/images/blood-drop.jpg';
 import { NavBar } from '../components/Navbar';
 import Footer from '../components/Footer';
+import { FaMapMarkerAlt } from 'react-icons/fa'; // Import the location icon
 
 const BloodBankList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,26 +23,31 @@ const BloodBankList = () => {
   return (
     <div>
       <NavBar />
-      <div className="blood-bank-list">
-        <h1>All Blood Bank Lists</h1>
-        <p>These are all available blood banks in Tamil Nadu. Kindly click on the banks to see the details of it.</p>
-        <div className="search-bar">
+      <div className="blood-bank-list-container">
+        <h1 className="page-title">All Blood Bank Lists</h1>
+        <p className="page-description">These are all available blood banks in Tamil Nadu. Kindly click on the banks to see the details of it.</p>
+        <div className="search-container">
           <input
             type="text"
+            className="search-input"
             placeholder="Enter Bank Name"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="reset-button" onClick={() => setSearchTerm('')}>Reset</button>
         </div>
-        <div className="bank-list">
+        <div className="blood-bank-items">
           {filteredBloodBanks.map((bank, index) => (
-            <div key={index} className="bank-item">
-              <img src={blood_drop} alt="Life Share Blood Bank" />
-              <div>
-                <h2>{bank.name} ({bank.location})</h2>
-                <p>Contact: {bank.contact}</p>
-                <p>Email: {bank.email}</p>
+            <div key={index} className="blood-bank-item">
+              <img src={blood_drop} alt="Blood Drop" className="blood-bank-image" />
+              <div className="blood-bank-details">
+                <h2 className="blood-bank-name">{bank.name}</h2>
+                <p className="blood-bank-contact">Contact: {bank.contact}</p>
+                <p className="blood-bank-email">Email: {bank.email}</p>
+                <div className="location-info">
+                  <FaMapMarkerAlt className="location-icon" />
+                  <span className="location-text">{bank.location}</span>
+                </div>
               </div>
             </div>
           ))}

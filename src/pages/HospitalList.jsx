@@ -7,16 +7,16 @@ import Footer from '../components/Footer';
 import { NavBar } from '../components/Navbar';
 
 const hospitalsData = [
-    { name: "Apollo Hospital (Chennai)", contact: "04428293333", email: "contact@apollochennai.com" },
-    { name: "Fortis Malar Hospital (Chennai)", contact: "04442892222", email: "contact@fortismalar.com" },
-    { name: "Sri Ramachandra Medical Centre (Chennai)", contact: "04445928585", email: "contact@sriramachandra.edu.in" },
-    { name: "Christian Medical College (Vellore)", contact: "04162281000", email: "contact@cmcvellore.ac.in" },
-    { name: "MIOT International (Chennai)", contact: "04442002288", email: "contact@miotinternational.com" },
-    { name: "Kauvery Hospital (Trichy)", contact: "04314029000", email: "contact@kauveryhospital.com" },
-    { name: "PSG Hospitals (Coimbatore)", contact: "04222578189", email: "contact@psghospitals.com" },
-    { name: "Ganga Hospital (Coimbatore)", contact: "04224388000", email: "contact@gangahospital.com" },
-    { name: "KMCH (Coimbatore)", contact: "04222661199", email: "contact@kmchhospitals.com" },
-    { name: "Global Hospitals (Chennai)", contact: "04444777000", email: "contact@globalhospitals.com" }
+    { name: "Apollo Hospital ", contact: "04428293333", email: "contact@apollochennai.com", city: "Chennai" },
+    { name: "Fortis Malar Hospital ", contact: "04442892222", email: "contact@fortismalar.com", city: "Chennai" },
+    { name: "Sri Ramachandra Medical Centre ", contact: "04445928585", email: "contact@sriramachandra.edu.in", city: "Chennai" },
+    { name: "Christian Medical College ", contact: "04162281000", email: "contact@cmcvellore.ac.in", city: "Vellore" },
+    { name: "MIOT International ", contact: "04442002288", email: "contact@miotinternational.com", city: "Chennai" },
+    { name: "Kauvery Hospital ", contact: "04314029000", email: "contact@kauveryhospital.com", city: "Trichy" },
+    { name: "PSG Hospitals ", contact: "04222578189", email: "contact@psghospitals.com", city: "Coimbatore" },
+    { name: "Ganga Hospital ", contact: "04224388000", email: "contact@gangahospital.com", city: "Coimbatore" },
+    { name: "KMCH ", contact: "04222661199", email: "contact@kmchhospitals.com", city: "Coimbatore" },
+    { name: "Global Hospitals", contact: "04444777000", email: "contact@globalhospitals.com", city: "Chennai" }
     // Add other hospitals with full details
 ];
 
@@ -56,6 +56,8 @@ const HospitalList = () => {
                     />
                     <button onClick={handleReset}>Reset</button>
                 </div>
+                <br></br>
+                <br></br>
                 <div className="hospital-list">
                     {filteredHospitals.map((hospital, index) => (
                         <div 

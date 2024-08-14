@@ -1,4 +1,4 @@
-.blood-bank-list {
+.blood-bank-list-container {
   text-align: center;
   padding: 20px;
 }
@@ -9,38 +9,27 @@ header {
   padding: 10px 0;
 }
 
-.blood-bank-list h1 {
+.page-title {
   font-size: 2em;
   margin-bottom: 10px;
 }
 
-.blood-bank-list p {
+.page-description {
   margin-bottom: 20px;
 }
 
-.search-bar {
+.search-container {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.search-bar input {
+.search-input {
   width: 200px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
-}
-
-.search-bar button {
-  padding: 10px 20px;
-  border: none;
-  background-color: rgb(205, 12, 12); /* Changed to orange */
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reset-button {
@@ -55,67 +44,76 @@ header {
 }
 
 .reset-button:hover {
-  background-color: rgb(227, 54, 54); /* Change to red on hover */
-  color: rgb(255, 255, 255); /* Change text color on hover */
-  transform: scale(1.05); /* Slightly enlarge the button on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  background-color: rgb(227, 54, 54);
+  color: rgb(255, 255, 255);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.bank-list {
+.blood-bank-items {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.bank-item {
+.blood-bank-item {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid sandybrown;
+  text-align: left;
+  padding: 12px;
+  margin: 30px; /* Increased margin to create even more space between items */
+  width: 350px;
+  height: 150px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.bank-item:hover {
+.blood-bank-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgb(255, 82, 82);
 }
 
-.bank-item img {
+.blood-bank-image {
   height: 50px;
   margin-right: 20px;
   transition: transform 0.3s ease;
 }
 
-.bank-item:hover img {
+.blood-bank-item:hover .blood-bank-image {
   transform: scale(1.1);
 }
 
-.bank-item h2 {
+.blood-bank-name {
   font-size: 1.2em;
   margin: 0;
   transition: color 0.3s ease;
 }
 
-.bank-item p {
+.blood-bank-contact,
+.blood-bank-email {
   margin: 5px 0;
   transition: color 0.3s ease;
 }
 
-.bank-item .location {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #139809; /* Corrected color code */
-  transition: color 0.3s ease;
+.blood-bank-item:hover .blood-bank-name,
+.blood-bank-item:hover .blood-bank-contact,
+.blood-bank-item:hover .blood-bank-email {
+  color: rgb(227, 54, 54);
 }
 
-.bank-item:hover h2,
-.bank-item:hover p,
-.bank-item:hover .location {
-  color: rgb(227, 54, 54); /* Change the color to your preferred hover color */
+.location-info {
+  display: flex;
+  align-items: center;
+  color: green; /* Default color for the location icon and text */
+}
+
+.location-icon {
+  margin-right: 5px;
+}
+
+.location-text {
+  margin-left: 5px;
 }

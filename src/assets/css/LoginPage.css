@@ -21,7 +21,8 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
   width: 263px;
   height: 380px;
-  margin-top: 67px;
+  margin-top: -20px;
+  margin-right: 20px;
   position: relative;
   z-index: 1;
 }
@@ -44,7 +45,7 @@
 .loginicon {
   position: absolute;
   left: 10px;
-  color: #333;
+  color: #000000;
 }
 
 .input {

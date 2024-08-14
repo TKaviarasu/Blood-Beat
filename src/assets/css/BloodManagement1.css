@@ -1,0 +1,68 @@
+.blood-donor-background {
+    background-color: wheat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.blood-management {
+    padding: 20px;
+    text-align: center; /* Center-align text */
+}
+
+.blood-management h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0); /* Change heading color to sandy brown */
+    font-size: 2rem;
+}
+
+.blood-management h1:hover {
+    color:sandybrown;
+
+}
+
+.donor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donor-table th,
+.donor-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center; /* Center-align table content */
+    transition: background-color 0.3s ease;
+}
+
+.donor-table th {
+    background-color: sandybrown; /* Change table heading color to sandy brown */
+    color: white;
+    font-weight: bold;
+}
+
+.donor-table td {
+    background-color: #f9f9f9;
+}
+
+.donor-table tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+.donor-table tr:hover td {
+    background-color: sandybrown; /* Sandy brown hover effect */
+    color: white; /* Change text color on hover */
+    cursor: pointer;
+}
+
+.donor-table td {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.donor-table th {
+    color: #fff;
+    font-size: 1rem;
+}

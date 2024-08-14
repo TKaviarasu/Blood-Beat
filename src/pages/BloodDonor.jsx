@@ -29,21 +29,33 @@ const BloodDonor = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.termsAccepted) {
-            // Prepare a descriptive message with form details
-            const successMessage = `
-                Thank you for registering as a blood donor...!
-            `;
-            alert(successMessage);
-            console.log(formData);
-            // Handle form submission
+            try {
+                const response = await fetch('http://localhost:8080/api/donors/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+                if (response.ok) {
+                    const successMessage = `Thank you for registering as a blood donor...!`;
+                    alert(successMessage);
+                    console.log('Form submitted:', formData);
+                } else {
+                    alert('Failed to submit form.');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred. Please try again.');
+            }
         } else {
             alert('You must accept the terms and conditions to submit the form.');
         }
     };
-
+    
     return (
         <div className="blood-donor-background">
             <NavBar />
@@ -101,6 +113,21 @@ const BloodDonor = () => {
                                 <option value="AB+">AB+</option>
                                 <option value="AB-">AB-</option>
                             </select>
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="quantity">
+                            <FaPlus className="input-icon" />
+                            <input
+                                type="number"
+                                id="quantity"
+                                name="quantity"
+                                placeholder="Quantity (in units)"
+                                value={formData.quantity}
+                                onChange={handleChange}
+                                min="1"
+                                required
+                            />
                         </label>
                     </div>
                     <div className="form-group">
@@ -171,21 +198,6 @@ const BloodDonor = () => {
                                 rows="3"
                                 required
                             ></textarea>
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="quantity">
-                            <FaPlus className="input-icon" />
-                            <input
-                                type="number"
-                                id="quantity"
-                                name="quantity"
-                                placeholder="Quantity (in units)"
-                                value={formData.quantity}
-                                onChange={handleChange}
-                                min="1"
-                                required
-                            />
                         </label>
                     </div>
                     <div className="form-group checkbox-group">

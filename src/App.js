@@ -12,13 +12,14 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import AdminDashboard from './pages/AdminDashboard';
 import BloodManagement from './pages/BloodManagement'; 
-import OrganManagement from './pages/OrganManagement';
-import Analysis from './pages/Analysis';
+// import Analysis from './pages/Analysis';
 import AdminLogin from './pages/AdminLogin';
 import OrganDonation from './pages/OrganDonation';
 import HospitalTable from './pages/HospitalTable';
 import UserManagement from './pages/UserManagement';
 import OrganRequest from './pages/OrganRequest';
+import BloodManagement1 from './pages/BloodManagement1';
+import OrganRequestManagement from './pages/OrganRequestManagement';
 
 function App() {
   return (
@@ -38,13 +39,14 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/blood-management" element={<BloodManagement />} />
-          <Route path="/organ-management" element={<OrganManagement />} />
-          <Route path="/analysis" element={<Analysis />} />
+          {/* <Route path="/analysis" element={<Analysis />} /> */}
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/organ-donation" element={<OrganDonation />} />
           <Route path="/hospital/:name" element={<HospitalTable />} />
           <Route path="/user-management" element={<UserManagement />} />
           <Route path="/organ-request" element={<OrganRequest />} />
+          <Route path='/blood-donor-management' element={<BloodManagement1/>}/>
+          <Route path='/organ-request-management' element={<OrganRequestManagement/>} />
         </Routes>
       </Router>
     </div>

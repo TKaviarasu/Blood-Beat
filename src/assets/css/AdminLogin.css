@@ -4,7 +4,7 @@
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    height: 380px;
+    height: 350px;
     margin: 0 auto; /* Center the form horizontally */
     position: absolute; /* Use absolute positioning for vertical centering */
     top: 50%; /* Position form in the middle of the screen vertically */
@@ -13,7 +13,7 @@
   }
   
   .admin-login-title {
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 20px; /* Reduced margin */
     text-align: center;
     font-size: 1.55rem;
   }

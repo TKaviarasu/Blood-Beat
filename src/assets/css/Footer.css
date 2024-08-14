@@ -1,6 +1,5 @@
 .footer {
     background-color: sandybrown;
-    height: 350px;
     padding: 40px 0;
     color: #333;
 }
@@ -60,7 +59,7 @@
 .contact-form button {
     padding: 10px 20px;
     border: none;
-    background-color:sandybrown;
+    background-color: sandybrown;
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -71,9 +70,32 @@
     color: #ddd;
 }
 
-.footer-bottom{
+.footer-section.social-media {
+    margin-top: 20px;
+    text-align: center; /* Center align the social media section */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center align the icons horizontally */
+    gap: 20px; /* Increased gap for better spacing */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: black;
+    font-size: 24px; /* Increased size for better visibility */
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: wheat;
+}
+
+.footer-bottom {
     text-align: center;
     padding: 20px 0;
     background-color: wheat;
     color: #000000;
+    margin-top: 20px;
 }

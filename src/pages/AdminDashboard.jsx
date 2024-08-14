@@ -5,6 +5,9 @@ import {
   FaTint,
   FaHandHoldingMedical,
   FaChartBar,
+  FaPhoneAlt,
+  FaCog,
+  FaSignOutAlt,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../assets/css/AdminDashboard.css';
@@ -54,6 +57,7 @@ const admins = [
 const AdminDashboard = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [bloodManagementOpen, setBloodManagementOpen] = useState(false);
+  const [organManagementOpen, setOrganManagementOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -61,6 +65,10 @@ const AdminDashboard = () => {
 
   const toggleBloodManagement = () => {
     setBloodManagementOpen(!bloodManagementOpen);
+  };
+
+  const toggleOrganManagement = () => {
+    setOrganManagementOpen(!organManagementOpen);
   };
 
   return (
@@ -98,13 +106,37 @@ const AdminDashboard = () => {
               )}
             </li>
             <li>
-              <Link to="/organ-management">
+              <div className="dropdown-toggle" onClick={toggleOrganManagement}>
                 <FaHandHoldingMedical className="menu-icon" /> Organ Management
+              </div>
+              {organManagementOpen && (
+                <ul className="dropdown-submenu">
+                  <li>
+                    <Link to="/organ-request-management">
+                      Organ Request Management
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/organ-donate-management">
+                      Organ Donate Management
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <Link to="/contact-management">
+                <FaPhoneAlt className="menu-icon" /> Contact Management
               </Link>
             </li>
             <li>
-              <Link to="/analysis">
-                <FaChartBar className="menu-icon" /> Overall Analysis
+              <Link to="/settings">
+                <FaCog className="menu-icon" /> Settings
+              </Link>
+            </li>
+            <li>
+              <Link to="/home">
+                <FaSignOutAlt className="menu-icon" /> Logout
               </Link>
             </li>
           </ul>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGoogle, FaFacebookF, FaUser, FaEnvelope, FaLock, FaPhone } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/SignupPage.css';
 
@@ -51,8 +51,23 @@ const SignupPage = () => {
       }
     }
   };
-  
-  
+
+  const handleGoogleSignup = () => {
+    const googleClientId = 'YOUR_GOOGLE_CLIENT_ID'; // Replace with your Google Client ID
+    const redirectUri = 'YOUR_REDIRECT_URI'; // Replace with your redirect URI
+    const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${redirectUri}&response_type=code&scope=profile email`;
+
+    window.location.href = googleAuthUrl;
+  };
+
+  const handleFacebookSignup = () => {
+    const facebookClientId = 'YOUR_FACEBOOK_CLIENT_ID'; // Replace with your Facebook Client ID
+    const redirectUri = 'YOUR_REDIRECT_URI'; // Replace with your redirect URI
+    const facebookAuthUrl = `https://www.facebook.com/v12.0/dialog/oauth?client_id=${facebookClientId}&redirect_uri=${redirectUri}&response_type=code&scope=email,public_profile`;
+
+    window.location.href = facebookAuthUrl;
+  };
+
   return (
     <div className="signup-container">
       <div className="signup-form-container">
@@ -100,23 +115,23 @@ const SignupPage = () => {
         </div>
         <br />
         <button
-          className="signup-button google-button"
+          className="signup-button submit-button"
           onClick={handleSignupClick}
+        >
+          Submit
+        </button>
+        <div className="signup-separator">or</div>
+        <button
+          className="signup-button google-button"
+          onClick={handleGoogleSignup}
         >
           <FaGoogle style={{ marginRight: '10px' }} /> Sign Up with Google
         </button>
         <button
           className="signup-button facebook-button"
-          onClick={handleSignupClick}
+          onClick={handleFacebookSignup}
         >
           <FaFacebookF style={{ marginRight: '10px' }} /> Sign Up with Facebook
-        </button>
-        <div className="signup-separator">or</div>
-        <button
-          className="signup-button submit-button"
-          onClick={handleSignupClick}
-        >
-          Submit
         </button>
       </div>
     </div>

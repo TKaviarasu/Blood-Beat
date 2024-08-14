@@ -8,6 +8,7 @@ const AdminDashboard = () => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
+  const [userPassword, setUserPassword] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,6 +26,7 @@ const AdminDashboard = () => {
     setEditUser(user.id);
     setUserName(user.fullname);
     setUserEmail(user.email);
+    setUserPassword(user.password);
     setUserPhone(user.phoneno);
   };
 
@@ -33,10 +35,11 @@ const AdminDashboard = () => {
       await axios.put(`http://localhost:8080/users/${editUser}`, {
         fullname: userName,
         email: userEmail,
+        password: userPassword, // Include the password
         phoneno: userPhone,
       });
       const updatedUsers = users.map(user =>
-        user.id === editUser ? { ...user, fullname: userName, email: userEmail, phoneno: userPhone } : user
+        user.id === editUser ? { ...user, fullname: userName, email: userEmail, password: userPassword, phoneno: userPhone } : user
       );
       setUsers(updatedUsers);
       setEditUser(null);
@@ -64,6 +67,7 @@ const AdminDashboard = () => {
               <th>ID</th>
               <th>Full Name</th>
               <th>Email</th>
+              <th>Password</th>
               <th>Phone Number</th>
               <th>Actions</th>
             </tr>
@@ -92,6 +96,17 @@ const AdminDashboard = () => {
                     />
                   ) : (
                     user.email
+                  )}
+                </td>
+                <td>
+                  {editUser === user.id ? (
+                    <input
+                      type="text" // Change to text to make password visible
+                      value={userPassword}
+                      onChange={(e) => setUserPassword(e.target.value)}
+                    />
+                  ) : (
+                    user.password // Display password as plain text
                   )}
                 </td>
                 <td>

@@ -8,24 +8,22 @@
 
 /* Title Styles */
 .admin-dashboard-title {
-  font-size: 28px;
-  color: #333;
+  font-size: 50px;
+  color: #000000;
   margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;
   font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.admin-dashboard-title:hover {
+  color: sandybrown;
 }
 
 /* User List Styles */
 .user-list-container {
   margin-top: 20px;
-}
-
-.user-list-title {
-  font-size: 24px;
-  color: #007bff;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: 500;
 }
 
 /* Table Styles */
@@ -40,14 +38,15 @@
 
 .user-table th, .user-table td {
   border: 1px solid #ddd;
-  padding: 15px;
+  padding: 20px;
   text-align: left;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
 }
 
 .user-table th {
   background-color: sandybrown;
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -61,17 +60,18 @@
 }
 
 .user-table tr:hover {
-  background-color: #e0e0e0;
+  background-color: sandybrown; /* Change to sandybrown on hover */
+  color: #fff; /* Optional: change text color to white on hover */
 }
 
 /* Edit and Delete Button Styles */
 .action-button {
-  padding: 10px 15px;
-  margin: 0 5px;
+  padding: 12px 18px;
+  margin: 0 8px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 

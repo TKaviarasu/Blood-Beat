@@ -78,7 +78,7 @@ body {
   transform: scale(1.05);
 }
 
-.content-text {
+.contents-text {
   margin-left: 20px;
   text-align: left;
   margin-bottom: 30px;
@@ -87,11 +87,15 @@ body {
   animation: slideInFromRight 1.5s ease-in-out;
 }
 
-.content-title {
+.contents-title {
   color: black;
 }
 
-.content-paragraph {
+.contents-title:hover{
+  color:sandybrown;
+}
+
+.contents-paragraph {
   font-size: 18px;
   margin: 20px 0;
 }
@@ -143,6 +147,10 @@ body {
 
 .request-button:hover {
   background-color:#c72c3b ;
+}
+
+.organ-donation-title:hover{
+  color:sandybrown;
 }
 
 @keyframes fadeIn {

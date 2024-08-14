@@ -31,34 +31,35 @@ const Inventory = () => {
   );
 
   return (
-    <div className="inventory-container">
+    <div className="inventory-container-unique">
       <NavBar />
-      <div className="blood-inventory">
-        <header>
-          <h1>Blood Inventory</h1>
+      <div className="blood-inventory-unique">
+        <header className="inventory-header-unique">
+          <h1 className="inventory-title-unique">Blood Inventory</h1>
         </header>
-        <section>
-          <p>These are all available blood. Kindly click on the bloods to see the details of it.</p>
-          <div className="search-bar">
+        <section className="inventory-section-unique">
+          <p className="inventory-description-unique">These are all available blood. Kindly click on the bloods to see the details of it.</p>
+          <div className="search-bar-unique">
             <input
               type="text"
+              className="search-input-unique"
               placeholder="Search Blood Group/City/Hospital"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Search Blood Group/City/Hospital"
             />
-            <button className="reset-button" onClick={() => setSearchTerm('')}>Reset</button>
+            <button className="reset-button-unique" onClick={() => setSearchTerm('')}>Reset</button>
           </div>
-          <div className="inventory-list">
+          <div className="inventory-list-unique">
             {filteredBloodInventory.map((item, index) => (
-              <div key={index} className="inventory-item">
-                <img src={item.logo} alt={`${item.group} Icon`} />
-                <div>
-                  <h2>{item.group} ({item.available} Available)</h2>
-                  <p>Blood Bank: {item.bank}</p>
-                  <p>Contact: {item.contact}</p>
-                  <p>Email: {item.email}</p>
-                  <p>City: {item.city}</p>
+              <div key={index} className="inventory-item-unique">
+                <img src={item.logo} alt={`${item.group} Icon`} className="inventory-item-logo-unique" />
+                <div className="inventory-item-details-unique">
+                  <h2 className="inventory-item-group-unique">{item.group} ({item.available} Available)</h2>
+                  <p className="inventory-item-bank-unique">Blood Bank: {item.bank}</p>
+                  <p className="inventory-item-contact-unique">Contact: {item.contact}</p>
+                  <p className="inventory-item-email-unique">Email: {item.email}</p>
+                  <p className="inventory-item-city-unique">City: {item.city}</p>
                 </div>
               </div>
             ))}

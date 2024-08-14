@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../assets/css/OrganRequest.css'; // Update the CSS path
 import Footer from '../components/Footer';
 import { NavBar } from '../components/Navbar';
-import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaHeartbeat } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaHeartbeat } from 'react-icons/fa';
 
 const OrganRequest = () => {
     const [formData, setFormData] = useState({
@@ -16,25 +16,20 @@ const OrganRequest = () => {
         address: '',
         description: '',
         organType: '',
-        termsAccepted: false
     });
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: value
         });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formData.termsAccepted) {
-            alert('Organ Request Form Submitted Successfully');
-            console.log(formData);
-        } else {
-            alert('You must accept the terms and conditions to submit the form.');
-        }
+        alert('Organ Request Form Submitted Successfully');
+        console.log(formData);
     };
 
     return (
@@ -47,12 +42,12 @@ const OrganRequest = () => {
                         <label htmlFor="Patient Name">
                             <FaUser className="organ-input-icon" />
                             <input
-                        type="text"
-                        name="patientName"
-                        placeholder="Patient Name"
-                        value={formData.patientName}
-                        onChange={handleChange}
-                    />
+                                type="text"
+                                name="patientName"
+                                placeholder="Patient Name"
+                                value={formData.patientName}
+                                onChange={handleChange}
+                            />
                         </label>
                     </div>
                     <div className="organ-form-group">
@@ -159,19 +154,6 @@ const OrganRequest = () => {
                                 onChange={handleChange}
                                 required
                             ></textarea>
-                        </label>
-                    </div>
-                    <div className="organ-form-group organ-checkbox-group">
-                        <input
-                            type="checkbox"
-                            id="termsAccepted"
-                            name="termsAccepted"
-                            checked={formData.termsAccepted}
-                            onChange={handleChange}
-                            required
-                        />
-                        <label htmlFor="termsAccepted">
-                            I accept the <a href="#terms">terms and conditions</a>
                         </label>
                     </div>
                     <button type="submit" className="organ-submit-button-custom">Submit</button>
