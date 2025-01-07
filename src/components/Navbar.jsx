@@ -1,3 +1,5 @@
+
+
 import React, { useState, useRef, useEffect } from 'react';
 import '../../src/assets/css/Navbar.css';
 import logo from '../assets/images/bblogo.png';
@@ -8,19 +10,25 @@ import { faUser, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-ico
 export const NavBar = () => {
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
   const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
+  const [inventoryDropdownOpen, setInventoryDropdownOpen] = useState(false);
 
   const serviceDropdownRef = useRef(null);
   const accountDropdownRef = useRef(null);
+  const inventoryDropdownRef = useRef(null);
 
   const toggleServiceDropdown = () => {
-    setServiceDropdownOpen(prev => !prev);
+    setServiceDropdownOpen((prev) => !prev);
   };
 
   const toggleAccountDropdown = () => {
-    setAccountDropdownOpen(prev => !prev);
+    setAccountDropdownOpen((prev) => !prev);
   };
 
-  // Handle click outside dropdown
+  const toggleInventoryDropdown = () => {
+    setInventoryDropdownOpen((prev) => !prev);
+  };
+
+  // Handle click outside dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -36,6 +44,13 @@ export const NavBar = () => {
         !event.target.closest('.account-dropdown')
       ) {
         setAccountDropdownOpen(false);
+      }
+      if (
+        inventoryDropdownRef.current &&
+        !inventoryDropdownRef.current.contains(event.target) &&
+        !event.target.closest('.inventory-dropdown')
+      ) {
+        setInventoryDropdownOpen(false);
       }
     };
 
@@ -56,14 +71,22 @@ export const NavBar = () => {
           <li><Link to="/about">About</Link></li>
           <li className="dropdown">
             <a href="#services" className="dropbtn">Services</a>
-            <div className="dropdown-content">
-              <Link to="/donor">Donor Management</Link>
-              <Link to="/inventory">Inventory Management</Link>
+            <div className="dropdown-content" ref={serviceDropdownRef}>
+              <Link to="/donor">Blood Donate</Link>
               <Link to="/requests">Blood Requests</Link>
             </div>
           </li>
           <li><Link to="/hospitals">Hospital</Link></li>
           <li><Link to="/blood_bank">BloodBank</Link></li>
+          <li className="dropdown inventory-dropdown" ref={inventoryDropdownRef}>
+            <a href="#inventory" className="dropbtn" onClick={toggleInventoryDropdown}>Inventory</a>
+            {inventoryDropdownOpen && (
+              <div className="dropdown-content">
+                <Link to="/inventory">Blood Inventory</Link>
+                <Link to="/organ-inventory">Organ Inventory</Link>
+              </div>
+            )}
+          </li>
           <li><Link to="/contact">Contact</Link></li>
           <li className="account-dropdown" ref={accountDropdownRef}>
             <FontAwesomeIcon icon={faUser} onClick={toggleAccountDropdown} />

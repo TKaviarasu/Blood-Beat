@@ -123,12 +123,11 @@ const AdminDashboard = () => {
                 <td>
                   {editUser === user.id ? (
                     <>
-                      <button className="action-button button-save" onClick={handleSave}>Save</button>
-                      <button className="action-button button-cancel" onClick={() => setEditUser(null)}>Cancel</button>
+                      
                     </>
                   ) : (
                     <>
-                      <button className="action-button button-edit" onClick={() => handleEdit(user)}>Edit</button>
+                      
                       <button className="action-button button-delete" onClick={() => handleDelete(user.id)}>Delete</button>
                     </>
                   )}

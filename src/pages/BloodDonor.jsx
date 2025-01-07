@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import '../assets/css/BloodDonor.css';
 import Footer from '../components/Footer';
 import { NavBar } from '../components/Navbar';
-import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaTint, FaPlus } from 'react-icons/fa'; // Import additional icons
-import bloodDonorImage from '../assets/images/blooddonar.png'; // Import the image
+import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaIdCard, FaTint, FaPlus } from 'react-icons/fa';
 
 const BloodDonor = () => {
     const [formData, setFormData] = useState({
@@ -41,8 +40,7 @@ const BloodDonor = () => {
                     body: JSON.stringify(formData),
                 });
                 if (response.ok) {
-                    const successMessage = `Thank you for registering as a blood donor...!`;
-                    alert(successMessage);
+                    alert('Your form is submitted successfully!');
                     console.log('Form submitted:', formData);
                 } else {
                     alert('Failed to submit form.');
@@ -55,16 +53,16 @@ const BloodDonor = () => {
             alert('You must accept the terms and conditions to submit the form.');
         }
     };
-    
+
     return (
         <div className="blood-donor-background">
             <NavBar />
             <div className="donor-form-container">
-                <img src={bloodDonorImage} alt="Blood Donor" className="donor-form-image" /> {/* Insert image */}
+                <h2 className="form-title">Blood Donor Form</h2>
                 <form onSubmit={handleSubmit} className="donor-form">
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="donorName">
-                            <FaUser className="input-icon" />
+                            <FaUser className="input-icon-custom" />
                             <input
                                 type="text"
                                 id="donorName"
@@ -76,9 +74,9 @@ const BloodDonor = () => {
                             />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="gender">
-                            <FaVenusMars className="input-icon" />
+                            <FaVenusMars className="input-icon-custom" />
                             <select id="gender" name="gender" value={formData.gender} onChange={handleChange} required>
                                 <option value="">Select Gender</option>
                                 <option value="Male">Male</option>
@@ -87,9 +85,9 @@ const BloodDonor = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="age">
-                            <FaBirthdayCake className="input-icon" />
+                            <FaBirthdayCake className="input-icon-custom" />
                             <select id="age" name="age" value={formData.age} onChange={handleChange} required>
                                 <option value="">Select Age</option>
                                 <option value="18-25">18-25</option>
@@ -99,9 +97,9 @@ const BloodDonor = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="bloodGroup">
-                            <FaTint className="input-icon" />
+                            <FaTint className="input-icon-custom" />
                             <select id="bloodGroup" name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} required>
                                 <option value="">Select Blood Group</option>
                                 <option value="A+">A+</option>
@@ -115,9 +113,9 @@ const BloodDonor = () => {
                             </select>
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="quantity">
-                            <FaPlus className="input-icon" />
+                            <FaPlus className="input-icon-custom" />
                             <input
                                 type="number"
                                 id="quantity"
@@ -130,9 +128,9 @@ const BloodDonor = () => {
                             />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="city">
-                            <FaCity className="input-icon" />
+                            <FaCity className="input-icon-custom" />
                             <input
                                 type="text"
                                 id="city"
@@ -144,9 +142,9 @@ const BloodDonor = () => {
                             />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="email">
-                            <FaEnvelope className="input-icon" />
+                            <FaEnvelope className="input-icon-custom" />
                             <input
                                 type="email"
                                 id="email"
@@ -158,9 +156,9 @@ const BloodDonor = () => {
                             />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="phone">
-                            <FaPhone className="input-icon" />
+                            <FaPhone className="input-icon-custom" />
                             <input
                                 type="tel"
                                 id="phone"
@@ -172,46 +170,50 @@ const BloodDonor = () => {
                             />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="address">
-                            <FaAddressCard className="input-icon" />
-                            <textarea
+                            <FaAddressCard className="input-icon-custom" />
+                            <input
+                                type="text"
                                 id="address"
                                 name="address"
-                                placeholder="Full Address"
+                                placeholder="Address"
                                 value={formData.address}
                                 onChange={handleChange}
-                                rows="2"
                                 required
-                            ></textarea>
+                            />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group-custom">
                         <label htmlFor="description">
-                            <FaPen className="input-icon" />
+                            <FaPen className="input-icon-custom" />
                             <textarea
                                 id="description"
                                 name="description"
-                                placeholder="Description/Requirements"
+                                placeholder="Additional Information"
                                 value={formData.description}
                                 onChange={handleChange}
-                                rows="3"
-                                required
-                            ></textarea>
+                            />
                         </label>
                     </div>
-                    <div className="form-group checkbox-group">
+                    <div className="checkbox-group">
                         <input
                             type="checkbox"
-                            id="terms"
+                            id="termsAccepted"
                             name="termsAccepted"
                             checked={formData.termsAccepted}
                             onChange={handleChange}
-                            required
                         />
-                        <span className="terms-checkbox-label">I accept the terms and conditions</span>
+                        <label htmlFor="termsAccepted" className="terms-checkbox-label">
+                            I accept the terms and conditions
+                        </label>
                     </div>
-                    <button type="submit" className="submit-button-custom">Submit</button>
+                    <br></br>
+                    <div className="form-group-custom">
+                        <button type="submit" className="submit-button-custom">
+                            Submit
+                        </button>
+                    </div>
                 </form>
             </div>
             <Footer />

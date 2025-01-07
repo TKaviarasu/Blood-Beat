@@ -12,7 +12,6 @@ import {
 } from 'chart.js';
 import '../assets/css/BloodManagement.css';
 
-// Register Chart.js components
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -24,7 +23,7 @@ ChartJS.register(
 
 const BloodManagement = () => {
     const [requests, setRequests] = useState([]);
-    
+
     useEffect(() => {
         axios.get('http://localhost:8080/bloodrequest')
             .then(response => {
@@ -33,9 +32,15 @@ const BloodManagement = () => {
             .catch(error => {
                 console.error('There was an error fetching the blood requests!', error);
             });
+
+        document.body.classList.add('fixed-screen');
+        
+        // Cleanup: remove class on unmount
+        return () => {
+            document.body.classList.remove('fixed-screen');
+        };
     }, []);
-    
-    // Aggregate data for the bar chart
+
     const aggregateData = () => {
         const data = requests.reduce((acc, request) => {
             const { bloodGroup } = request;
@@ -60,8 +65,8 @@ const BloodManagement = () => {
             {
                 label: 'Quantity of Blood Requested',
                 data: chartData.values,
-                backgroundColor: 'sandybrown', // Changed color
-                borderColor: 'sandybrown', // Changed color
+                backgroundColor: 'sandybrown',
+                borderColor: 'sandybrown',
                 borderWidth: 1
             }
         ]
@@ -93,11 +98,19 @@ const BloodManagement = () => {
         }
     };
 
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8080/bloodrequest/${id}`)
+            .then(() => {
+                setRequests(requests.filter(request => request.id !== id));
+            })
+            .catch(error => {
+                console.error('There was an error deleting the request!', error);
+            });
+    };
+
     return (
         <div className="blood-management">
             <h2>Blood Request Management</h2>
-            <br></br>
-            <br></br>
             <div className="blood-requests-table">
                 <table>
                     <thead>
@@ -112,11 +125,12 @@ const BloodManagement = () => {
                             <th>Phone Number</th>
                             <th>Hospital Address</th>
                             <th>Description</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {requests.map((request, index) => (
-                            <tr key={index}>
+                        {requests.map((request) => (
+                            <tr key={request.id}>
                                 <td>{request.patientName}</td>
                                 <td>{request.bloodGroup}</td>
                                 <td>{request.quantity}</td>
@@ -127,6 +141,9 @@ const BloodManagement = () => {
                                 <td>{request.phoneNumber}</td>
                                 <td>{request.hospitalAddress}</td>
                                 <td>{request.description}</td>
+                                <td>
+                                    <button onClick={() => handleDelete(request.id)} className="delete-btn">Delete</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

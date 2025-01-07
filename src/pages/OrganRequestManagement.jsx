@@ -1,66 +1,94 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // Import axios
+import { Bar } from 'react-chartjs-2';
 import '../assets/css/OrganRequestManagement.css';
 
 const OrganRequestManagement = () => {
-  const [requests, setRequests] = useState([]);
+  const [organRequests, setOrganRequests] = useState([]);
 
   useEffect(() => {
-    const fetchRequests = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get('/api/organ-requests');
-        setRequests(response.data);
+        const response = await fetch("http://localhost:8080/api/organrequests/all");
+        if (response.ok) {
+          const data = await response.json();
+          setOrganRequests(data);
+        } else {
+          console.error("Error fetching data:", response.statusText);
+        }
       } catch (error) {
-        console.error('Error fetching the organ requests', error);
+        console.error("Error fetching data:", error);
       }
     };
 
-    fetchRequests();
+    fetchData();
   }, []);
+
+  // Prepare data for the bar chart
+  const organTypes = organRequests.map(request => request.organType);
+  const organTypeCounts = organTypes.reduce((acc, type) => {
+    acc[type] = (acc[type] || 0) + 1;
+    return acc;
+  }, {});
+
+  const chartData = {
+    labels: Object.keys(organTypeCounts),
+    datasets: [
+      {
+        label: 'Organ Requests',
+        data: Object.values(organTypeCounts),
+        backgroundColor: '#f4a460',
+        borderColor: '#8b4513',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
 
   return (
     <div className="organ-request-management">
-      <main className="main-content">
-        <h1 className="title">Organ Request Management</h1>
-        <div className="requests-container">
-          {requests.length === 0 ? (
-            <p>No organ requests found.</p>
-          ) : (
-            <table className="requests-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Patient Name</th>
-                  <th>Gender</th>
-                  <th>Age</th>
-                  <th>City</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>Organ Type</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                {requests.map(request => (
-                  <tr key={request.id}>
-                    <td>{request.id}</td>
-                    <td>{request.donorName}</td>
-                    <td>{request.gender}</td>
-                    <td>{request.age}</td>
-                    <td>{request.city}</td>
-                    <td>{request.email}</td>
-                    <td>{request.phone}</td>
-                    <td>{request.address}</td>
-                    <td>{request.organType}</td>
-                    <td>{request.description}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </main>
+      <h2>Organ Request Management</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Organ Type</th>
+            <th>Quantity</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {organRequests.map((request) => (
+            <tr key={request.id}>
+              <td>{request.patientName}</td>
+              <td>{request.age}</td>
+              <td>{request.gender}</td>
+              <td>{request.organType}</td>
+              <td>{request.quantity}</td>
+              <td>{request.city}</td>
+              <td>{request.email}</td>
+              <td>{request.phone}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div className="chart-container">
+        <h3>Organ Requests by Type</h3>
+        <Bar data={chartData} options={chartOptions} />
+      </div>
     </div>
   );
 };

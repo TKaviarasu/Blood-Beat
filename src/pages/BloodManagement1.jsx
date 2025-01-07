@@ -8,6 +8,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const BloodManagement1 = () => {
     const [donors, setDonors] = useState([]);
 
+    // Fetch donors on initial load
     useEffect(() => {
         fetchDonors();
     }, []);
@@ -22,7 +23,28 @@ const BloodManagement1 = () => {
         }
     };
 
-    // Prepare data for the bar chart
+    // Delete donor function
+    const deleteDonor = async (id) => {
+        try {
+            console.log(`Sending DELETE request for donor ID: ${id}`);
+            
+            const response = await fetch(`http://localhost:8080/api/donors/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                console.log(`Donor with ID ${id} deleted successfully`);
+                // Filter out the donor from the current list after deletion
+                setDonors((prevDonors) => prevDonors.filter((donor) => donor.id !== id));
+            } else {
+                console.error('Failed to delete donor. Response:', response);
+            }
+        } catch (error) {
+            console.error('Error deleting donor:', error);
+        }
+    };
+
+    // Prepare data for the chart
     const bloodGroupQuantities = donors.reduce((acc, donor) => {
         if (donor.bloodGroup in acc) {
             acc[donor.bloodGroup] += donor.quantity;
@@ -36,13 +58,13 @@ const BloodManagement1 = () => {
         labels: Object.keys(bloodGroupQuantities),
         datasets: [
             {
-                label: 'Total Quantity of Blood Donations',
+                label: 'Total Blood Donations (Units)',
                 data: Object.values(bloodGroupQuantities),
-                backgroundColor: 'rgba(244, 164, 96, 0.5)', // Sandy brown color
-                borderColor: 'rgba(244, 164, 96, 1)', // Sandy brown color
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(244, 164, 96, 0.7)', // Sandy brown hover color
-                hoverBorderColor: 'rgba(244, 164, 96, 1)',
+                backgroundColor: 'rgba(244, 164, 96, 0.6)', // SandyBrown color
+                borderColor: 'rgba(244, 164, 96, 1)',
+                borderWidth: 2,
+                borderRadius: 8,
+                hoverBackgroundColor: 'rgba(210, 140, 80, 0.8)',
             },
         ],
     };
@@ -51,18 +73,26 @@ const BloodManagement1 = () => {
         responsive: true,
         plugins: {
             legend: {
-                position: 'top',
+                display: true,
                 labels: {
+                    color: '#444',
                     font: {
-                        size: 14,
+                        size: 16,
                         family: 'Arial, sans-serif',
                     },
                 },
             },
             tooltip: {
+                backgroundColor: '#ffffff',
+                titleColor: '#333',
+                titleFont: { size: 14, family: 'Arial, sans-serif' },
+                bodyColor: '#333',
+                borderColor: 'rgba(244, 164, 96, 1)',
+                borderWidth: 1,
+                displayColors: false,
                 callbacks: {
                     label: function (context) {
-                        return `${context.label}: ${context.raw} units`;
+                        return ` ${context.label}: ${context.raw} units`;
                     },
                 },
             },
@@ -72,18 +102,21 @@ const BloodManagement1 = () => {
                 grid: {
                     display: false,
                 },
+                ticks: {
+                    color: '#444',
+                    font: { size: 14, family: 'Arial, sans-serif' },
+                },
             },
             y: {
+                beginAtZero: true,
                 grid: {
-                    borderDash: [5, 5],
-                    color: '#e0e0e0',
+                    color: 'rgba(210, 140, 80, 0.3)',
+                    borderDash: [4, 4],
                 },
                 ticks: {
-                    stepSize: 10,
-                    font: {
-                        size: 12,
-                        family: 'Arial, sans-serif',
-                    },
+                    color: '#444',
+                    font: { size: 14, family: 'Arial, sans-serif' },
+                    stepSize: 1,
                 },
             },
         },
@@ -92,7 +125,6 @@ const BloodManagement1 = () => {
     return (
         <div className="blood-management">
             <h1>Blood Donor Management</h1>
-            <br></br>
             <br></br>
             <table className="donor-table">
                 <thead>
@@ -106,6 +138,7 @@ const BloodManagement1 = () => {
                         <th>Phone</th>
                         <th>Quantity</th>
                         <th>Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -120,11 +153,21 @@ const BloodManagement1 = () => {
                             <td>{donor.phone}</td>
                             <td>{donor.quantity}</td>
                             <td>{donor.description}</td>
+                            <td>
+                                <button 
+                                    onClick={() => deleteDonor(donor.id)} 
+                                    className="delete-btn"
+                                >
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <Bar data={chartData} options={chartOptions} />
+            <div className="chart-container">
+                <Bar data={chartData} options={chartOptions} />
+            </div>
         </div>
     );
 };

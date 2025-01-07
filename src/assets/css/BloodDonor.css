@@ -1,6 +1,5 @@
-
 .blood-donor-background {
-background-color: wheat;
+    background-color: wheat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -18,20 +17,28 @@ background-color: wheat;
     transition: box-shadow 0.3s ease;
 }
 
-.donor-form .form-group {
+.form-title {
+    font-size: 1.8rem;
+    text-align: center;
+    color: black; /* Changed to black */
+    margin-bottom: 20px;
+}
+
+.donor-form .form-group-custom {
     margin-bottom: 15px;
     position: relative;
 }
 
-.donor-form .form-group label {
+.donor-form .form-group-custom label {
     display: block;
     position: relative;
     font-weight: bold;
+    color: black; /* Changed to black */
 }
 
-.donor-form .form-group input,
-.donor-form .form-group select,
-.donor-form .form-group textarea {
+.donor-form .form-group-custom input,
+.donor-form .form-group-custom select,
+.donor-form .form-group-custom textarea {
     width: 100%;
     padding: 10px;
     padding-left: 35px; /* Add padding to accommodate the icon */
@@ -41,87 +48,54 @@ background-color: wheat;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.donor-form .form-group input:focus,
-.donor-form .form-group select:focus,
-.donor-form .form-group textarea:focus {
+.donor-form .form-group-custom input:focus,
+.donor-form .form-group-custom select:focus,
+.donor-form .form-group-custom textarea:focus {
     border-color: var(--primary-red);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px var(--primary-red);
 }
 
-.donor-form .form-group.checkbox-group {
-    display: flex;
-    align-items: center;
-}
-
-.donor-form .form-group.checkbox-group input {
-    width: auto;
-    margin-right: 10px;
-}
-
-.donor-form .form-group.checkbox-group label {
-    font-weight: normal;
-}
-
-.donor-form .form-group.checkbox-group a {
-    color: var(--primary-red);
-    text-decoration: none;
-}
-
-.donor-form .form-group.checkbox-group a:hover {
-    text-decoration: underline;
-}
-
-/* Existing CSS styles... */
-
-.submit-button-custom {
-    display: block;
-    width: 100px;
-    background-color: sandybrown; /* Change the background color to sandybrown */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.875rem; /* Reduce font size for a smaller button */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto;
-}
-
-.submit-button-custom:hover {
-    background-color: #c72c3b; /* Change background color on hover to dark red */
-    transform: translateY(-3px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.donor-form-image {
-    max-width: 500px;
-    max-height: 80px;
-    margin-left: 195px;
-}
-
-.input-icon {
+.donor-form .form-group-custom .input-icon-custom {
     position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--dark-grey);
+    color: black; /* Changed to black */
 }
 
-/* Adjustments for the new input fields */
-.donor-form .form-group input,
-.donor-form .form-group select,
-.donor-form .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    padding-left: 35px; /* Add padding to accommodate the icon */
-    border: 1px solid var(--dark-grey);
+.donor-form .submit-button-custom {
+    background-color: sandybrown; /* Change to sandybrown */
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Reduced padding to make the button smaller */
     border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 150px;
+    width: 30%;
+    border-radius: 5px;
+    font-size: 1rem; /* Slightly smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.donor-form .form-group label {
-    display: block;
-    position: relative;
-    font-weight: bold;
-    margin-bottom: 10px;
+.donor-form .submit-button-custom:hover {
+    background-color: #c72c3b; /* Lighter shade of sandybrown for hover effect */
+}
+
+/* Adjustments for checkbox and text */
+.checkbox-group {
+    display: flex;
+    align-items: center; 
+    margin-left: -100px;
+}
+
+.checkbox-group input {
+    margin-left: -120px; /* Space between checkbox and text */
+}
+
+.terms-checkbox-label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-right: -200px;
+    /* Remove any default margin to ensure no gap */
+    display: inline; /* Ensure the label text stays on the same line */
 }

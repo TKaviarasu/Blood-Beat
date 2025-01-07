@@ -1,167 +1,171 @@
 import React, { useState } from 'react';
-import '../assets/css/OrganRequest.css'; // Update the CSS path
+import { FaUser, FaVenusMars, FaCity, FaEnvelope, FaPhone, FaAddressCard, FaNotesMedical, FaSortNumericDown } from 'react-icons/fa';
+import '../assets/css/OrganRequest.css';
+import NavBar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { NavBar } from '../components/Navbar';
-import { FaEnvelope, FaPhone, FaCity, FaAddressCard, FaPen, FaVenusMars, FaBirthdayCake, FaUser, FaHeartbeat } from 'react-icons/fa';
 
 const OrganRequest = () => {
-    const [formData, setFormData] = useState({
-        donorName: '',
-        donorId: '',
-        gender: '',
-        age: '',
-        city: '',
-        email: '',
-        phone: '',
-        address: '',
-        description: '',
-        organType: '',
+  const [formData, setFormData] = useState({
+    patientName: '',
+    gender: '',
+    age: '',
+    city: '',
+    email: '',
+    phone: '',
+    address: '',
+    description: '',
+    organType: '',
+    quantity: 1,
+    termsAccepted: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value,
     });
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form Data:", formData);
+
+    try {
+      const response = await fetch("http://localhost:8080/api/organrequests/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert("Organ Request Form Submitted Successfully");
         setFormData({
-            ...formData,
-            [name]: value
+          patientName: '',
+          gender: '',
+          age: '',
+          city: '',
+          email: '',
+          phone: '',
+          address: '',
+          description: '',
+          organType: '',
+          quantity: 1,
+          termsAccepted: false,
         });
-    };
+      } else {
+        console.error("Error submitting form:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert('Organ Request Form Submitted Successfully');
-        console.log(formData);
-    };
-
-    return (
-        <div className="organ-request-background">
-            <NavBar />
-            <div className="organ-request-form-container">
-                <div className="organ-request-form-title">Organ Request Form</div>
-                <form onSubmit={handleSubmit} className="organ-request-form">
-                    <div className="organ-form-group">
-                        <label htmlFor="Patient Name">
-                            <FaUser className="organ-input-icon" />
-                            <input
-                                type="text"
-                                name="patientName"
-                                placeholder="Patient Name"
-                                value={formData.patientName}
-                                onChange={handleChange}
-                            />
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="gender">
-                            <FaVenusMars className="organ-input-icon" />
-                            <select id="gender" name="gender" value={formData.gender} onChange={handleChange} required>
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="age">
-                            <FaBirthdayCake className="organ-input-icon" />
-                            <select id="age" name="age" value={formData.age} onChange={handleChange} required>
-                                <option value="">Select Age</option>
-                                <option value="18-25">18-25</option>
-                                <option value="26-35">26-35</option>
-                                <option value="36-45">36-45</option>
-                                <option value="46-60">46-60</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="organType">
-                            <FaHeartbeat className="organ-input-icon" />
-                            <select id="organType" name="organType" value={formData.organType} onChange={handleChange} required>
-                                <option value="">Select Organ</option>
-                                <option value="Kidney">Kidney</option>
-                                <option value="Liver">Liver</option>
-                                <option value="Heart">Heart</option>
-                                <option value="Lung">Lung</option>
-                                <option value="Pancreas">Pancreas</option>
-                                <option value="Intestine">Intestine</option>
-                            </select>
-                        </label>
-                    </div>
-
-                    <div className="organ-form-group">
-                        <label htmlFor="city">
-                            <FaCity className="organ-input-icon" />
-                            <input
-                                type="text"
-                                id="city"
-                                name="city"
-                                placeholder="City"
-                                value={formData.city}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="email">
-                            <FaEnvelope className="organ-input-icon" />
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="phone">
-                            <FaPhone className="organ-input-icon" />
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="Phone Number"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="address">
-                            <FaAddressCard className="organ-input-icon" />
-                            <textarea
-                                id="address"
-                                name="address"
-                                placeholder="Full Address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                required
-                            ></textarea>
-                        </label>
-                    </div>
-                    <div className="organ-form-group">
-                        <label htmlFor="description">
-                            <FaPen className="organ-input-icon" />
-                            <textarea
-                                id="description"
-                                name="description"
-                                placeholder="Description"
-                                value={formData.description}
-                                onChange={handleChange}
-                                required
-                            ></textarea>
-                        </label>
-                    </div>
-                    <button type="submit" className="organ-submit-button-custom">Submit</button>
-                </form>
+  return (
+    <div className="form-background">
+      <NavBar />
+      <div className="form-container">
+        <h2 className="form-title">Organ Request Form</h2>
+        <form onSubmit={handleSubmit} className="organ-request-form">
+          {[ 
+            { label: 'Patient Name', name: 'patientName', type: 'text', icon: <FaUser /> },
+            { label: 'Age', name: 'age', type: 'number', icon: <FaSortNumericDown /> },
+            { label: 'City', name: 'city', type: 'text', icon: <FaCity /> },
+            { label: 'Email', name: 'email', type: 'email', icon: <FaEnvelope /> },
+            { label: 'Phone', name: 'phone', type: 'tel', icon: <FaPhone /> },
+            { label: 'Address', name: 'address', type: 'text', icon: <FaAddressCard /> }
+          ].map((field, index) => (
+            <div key={index} className="form-group">
+              <div className="input-container">
+                {field.icon && <span className="input-icon">{field.icon}</span>}
+                <input
+                  type={field.type}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  placeholder={field.label} 
+                  required
+                />
+                <label className="label-container">{field.label}</label>
+              </div>
             </div>
-            <Footer />
-        </div>
-    );
+          ))}
+
+          <div className="form-group">
+            <div className="input-container">
+              <FaVenusMars className="input-icon" />
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <option value=""></option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <label className="label-container">Gender</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-container">
+              <FaNotesMedical className="input-icon" />
+              <select
+                name="organType"
+                value={formData.organType}
+                onChange={handleChange}
+                required
+              >
+                <option value="Organ Type">Organ Type</option>
+                <option value="Heart">Heart</option>
+                <option value="Liver">Liver</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Lungs">Lungs</option>
+                <option value="Pancreas">Pancreas</option>
+                <option value="Intestine">Intestine</option>
+
+              </select>
+              <label className="label-container">Organ Type</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-container">
+              <FaSortNumericDown className="input-icon" />
+              <input
+                type="number"
+                name="quantity"
+                value={formData.quantity}
+                onChange={handleChange}
+                min="1"
+                required
+              />
+              <label className="label-container">Quantity</label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <input
+              type="checkbox"
+              name="termsAccepted"
+              checked={formData.termsAccepted}
+              onChange={handleChange}
+              required
+            />
+            <br></br>
+            <label className="label-container">I accept the terms and conditions</label>
+            <br></br>
+          </div>
+
+          <button type="submit" className="submit-button-custom">Submit</button>
+        </form>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default OrganRequest;

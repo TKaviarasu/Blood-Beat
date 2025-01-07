@@ -6,8 +6,8 @@
   background-color: sandybrown;
   animation: slideDown 1s ease-in-out;
   height: 60px;
-  width: 6000x;
-  margin: 0 auto; /* Centering the navbar */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .logo-container {
@@ -15,7 +15,7 @@
 }
 
 .logo {
-  height: 15vh; /* 10% of the viewport height */
+  height: 15vh;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -50,8 +50,8 @@
   padding: 10px 20px;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   display: flex;
-  align-items: center; /* Align icons and text */
-  gap: 5px; /* Space between icons and text */
+  align-items: center;
+  gap: 5px;
 }
 
 .nav ul li a:hover {
@@ -87,53 +87,49 @@
   opacity: 1;
 }
 
-.dropdown:hover .dropbtn {
-  background-color: #ffffff;
+.account-dropdown {
+  position: relative;
+  cursor: pointer;
+  color: #000000;
+  z-index: 1200;
+  margin-right: 28px;
+}
+
+.account-dropdown .fa-user {
+  font-size: 1.5em;
+}
+
+.account-dropdown .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1200;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.account-dropdown a {
+  color: wheat;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.account-dropdown a:hover {
+  background-color: wheat;
+  color: #ffffff;
 }
 
 @keyframes slideDown {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(0); }
-}
-
-.account-dropdown {
-  position: relative;
-  cursor: pointer;
-  color: #000000; /* Light grey color for the account icon */
-  z-index: 1200; /* Ensure it stays above other elements, especially the service dropdown */
-  margin-right: 28px; /* Add margin to the right */
-}
-
-.account-dropdown .fa-user {
-  font-size: 1.5em; /* Increase icon size for better visibility */
-}
-
-.account-dropdown .dropdown-menu {
-  display: flex; /* Use flexbox for vertical alignment */
-  flex-direction: column; /* Stack items vertically */
-  width: 200px; /* Fixed width for account dropdown */
-  position: absolute;
-  right: 0;
-  top: 100%; /* Position below the dropdown trigger */
-  background-color: white; /* Darker background for dropdown */
-  border: 1px solid white; /* Dark border */
-  border-radius: 5px;
-  padding: 10px;
-  z-index: 1200; /* Ensure it stays above other elements */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: add shadow for better visibility */
-}
-
-.account-dropdown a {
-  color: wheat; /* Light grey color for text */
-  text-decoration: none;
-  padding: 10px; /* Increased padding for better click area */
-  display: flex;
-  align-items: center;
-  border-radius: 4px; /* Slight rounding for grid items */
-  margin-bottom: 5px; /* Space between links */
-}
-
-.account-dropdown a:hover {
-  background-color: wheat; /* Light teal hover background */
-  color: #ffffff; /* White color for text on hover */
 }

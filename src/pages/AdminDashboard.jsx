@@ -4,7 +4,6 @@ import {
   FaUsers,
   FaTint,
   FaHandHoldingMedical,
-  FaChartBar,
   FaPhoneAlt,
   FaCog,
   FaSignOutAlt,

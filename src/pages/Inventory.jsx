@@ -6,6 +6,7 @@ import Bp from '../assets/images/b+.png';
 import Bn from '../assets/images/b-.png';
 import Op from '../assets/images/o+.png';
 import On from '../assets/images/o-.png';
+import { FaMapMarkerAlt } from 'react-icons/fa'; // Import location icon
 import { NavBar } from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -59,7 +60,9 @@ const Inventory = () => {
                   <p className="inventory-item-bank-unique">Blood Bank: {item.bank}</p>
                   <p className="inventory-item-contact-unique">Contact: {item.contact}</p>
                   <p className="inventory-item-email-unique">Email: {item.email}</p>
-                  <p className="inventory-item-city-unique">City: {item.city}</p>
+                  <p className="inventory-item-city-unique">
+                    <FaMapMarkerAlt /> {item.city}
+                  </p>
                 </div>
               </div>
             ))}

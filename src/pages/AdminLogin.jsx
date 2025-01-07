@@ -23,7 +23,6 @@ const AdminLogin = () => {
     const validPassword = 'admin';
 
     if (email === validEmail && password === validPassword) {
-      // Navigate to the admin dashboard on successful login
       navigate('/admin');
     } else {
       setErrorMessage('Invalid email or password.');
@@ -31,38 +30,40 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="admin-login-form">
-      <h2 className="admin-login-title">Admin Login</h2>
-      <form onSubmit={handleSubmit}>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
-        <div className="admin-login-input-container">
-          <label className="admin-login-label">
-            <FaEnvelope className="admin-login-icon" />
-            <input
-              type="email"
-              className="admin-login-input"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <div className="admin-login-input-container">
-          <label className="admin-login-label">
-            <FaLock className="admin-login-icon" />
-            <input
-              type="password"
-              className="admin-login-input"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-        </div>
-        <button className="admin-login-button" type="submit">Login</button>
-      </form>
+    <div className="admin-login-background">
+      <div className="admin-login-container">
+        <h2 className="admin-login-heading">Admin Login</h2>
+        <form onSubmit={handleSubmit}>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+          <div className="admin-input-wrapper">
+            <label className="admin-input-label">
+              <FaEnvelope className="admin-icon" />
+              <input
+                type="email"
+                className="admin-input-field"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div className="admin-input-wrapper">
+            <label className="admin-input-label">
+              <FaLock className="admin-icon" />
+              <input
+                type="password"
+                className="admin-input-field"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <button className="admin-submit-button" type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

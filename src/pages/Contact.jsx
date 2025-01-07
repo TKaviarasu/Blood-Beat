@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../assets/css/Contact.css';
 import { NavBar } from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [responseMessage, setResponseMessage] = useState('');
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8080/api/contact/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setResponseMessage("Contact message sent successfully!");
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setResponseMessage("Failed to send message. Please try again later.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setResponseMessage("Error occurred while sending message.");
+        }
+    };
+
     return (
         <div>
             <NavBar />
@@ -29,21 +67,43 @@ const Contact = () => {
                     </div>
                     <div className="contact-form-custom">
                         <h2 className="form-title-custom">Send Us a Message</h2>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="form-group-custom">
                                 <label htmlFor="name">Name:</label>
-                                <input type="text" id="name" name="name" required />
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                             <div className="form-group-custom">
                                 <label htmlFor="email">Email:</label>
-                                <input type="email" id="email" name="email" required />
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
                             <div className="form-group-custom">
                                 <label htmlFor="message">Message:</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
+                                ></textarea>
                             </div>
                             <button type="submit" className="submit-button-custom">Submit</button>
                         </form>
+                        {responseMessage && <p className="response-message">{responseMessage}</p>}
                     </div>
                 </div>
                 <div className="map-container-custom">

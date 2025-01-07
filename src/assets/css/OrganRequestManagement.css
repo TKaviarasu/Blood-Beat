@@ -1,17 +1,89 @@
+/* Container styling */
 .organ-request-management {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+  width: 85%;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #f7e6d5; /* Light wheat background */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.organ-request-management h2 {
+  font-size: 2.5rem;
+  color: #000000; /* Sandy brown */
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.organ-request-management h2:hover
+{color: sandybrown;
+
+}
+
+/* Table styling */
+.organ-request-management table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fdf5e6; /* Light wheat table background */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header styling */
+.organ-request-management th {
+  background-color: #f4a460; /* Sandy brown */
+  color: #ffffff;
+  padding: 15px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid #e0cda9;
+}
+
+/* Table data cell styling */
+.organ-request-management td {
+  padding: 15px;
+  color: #4d2c0c; /* Darker brown for text */
+  border-bottom: 1px solid #e0cda9;
+}
+
+/* Row styling */
+.organ-request-management tbody tr:nth-child(even) {
+  background-color: #f9f2e7;
+}
+
+.organ-request-management tbody tr:nth-child(odd) {
+  background-color: #fdf5e6;
+}
+
+/* Hover effect */
+.organ-request-management tbody tr:hover {
+  background-color: #deb887; /* Light sandy brown on hover */
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.organ-request-management tbody tr:hover td {
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Chart container styling */
+.organ-request-management .chart-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f7e6d5;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.organ-request-management .chart-container h3 {
+  font-size: 2rem;
+  color: #8b4513;
+  margin-bottom: 20px;
+}

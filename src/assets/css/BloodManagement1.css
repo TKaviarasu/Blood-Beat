@@ -1,25 +1,17 @@
-.blood-donor-background {
-    background-color: wheat;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-}
-
 .blood-management {
     padding: 20px;
-    text-align: center; /* Center-align text */
+    text-align: center;
 }
 
 .blood-management h1 {
-    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    color: rgb(0, 0, 0); /* Change heading color to sandy brown */
-    font-size: 2rem;
 }
 
-.blood-management h1:hover {
-    color:sandybrown;
-
+.blood-management h1:hover
+{
+    color: sandybrown;
 }
 
 .donor-table {
@@ -32,13 +24,13 @@
 .donor-table th,
 .donor-table td {
     border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center; /* Center-align table content */
+    padding: 10px;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .donor-table th {
-    background-color: sandybrown; /* Change table heading color to sandy brown */
+    background-color: #f4a460; /* SandyBrown color */
     color: white;
     font-weight: bold;
 }
@@ -52,17 +44,31 @@
 }
 
 .donor-table tr:hover td {
-    background-color: sandybrown; /* Sandy brown hover effect */
-    color: white; /* Change text color on hover */
+    background-color: #f4a460;
+    color: white;
     cursor: pointer;
 }
 
-.donor-table td {
-    color: #333;
-    font-size: 0.9rem;
+/* Styling for the chart container */
+.chart-container {
+    max-width: 1000px; /* Increased chart width */
+    height: 600px; /* Increased chart height */
+    margin: 20px auto;
+    background: #fff5ee; /* Very light SandyBrown background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.donor-table th {
-    color: #fff;
-    font-size: 1rem;
+.delete-btn {
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #d9534f; /* Darker red */
 }

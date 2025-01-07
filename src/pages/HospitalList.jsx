@@ -1,3 +1,4 @@
+// HospitalList.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/HospitalList.css';
@@ -56,8 +57,8 @@ const HospitalList = () => {
                     />
                     <button onClick={handleReset}>Reset</button>
                 </div>
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <div className="hospital-list">
                     {filteredHospitals.map((hospital, index) => (
                         <div 

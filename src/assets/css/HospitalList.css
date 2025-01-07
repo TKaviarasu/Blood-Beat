@@ -1,6 +1,7 @@
+/* HospitalList.css */
 .hospital-list-container {
     padding: 20px;
-    max-width: 1000px;
+    max-width: 800px; /* Adjusted width for two containers per row */
     margin: 0 auto;
     text-align: center;
 }
@@ -41,26 +42,25 @@
 }
 
 .search-container button:hover {
-    background-color: rgb(227, 54, 54); /* Change to your preferred hover color */
-    color: white; /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    background-color: rgb(227, 54, 54);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hospital-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Adjusted to space items evenly */
-    gap: 50px; /* Reduced gap to decrease horizontal spacing */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two items per row */
+    gap: 30px; /* Increased gap for more spacing */
+    justify-content: center;
 }
 
 .hospital-item {
     background-color: #f9f9f9;
-    padding: 18px; /* Adjusted padding */
-    border: 2px solid sandybrown; /* Added border color */
+    padding: 20px;
+    border: 2px solid sandybrown;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -94,5 +94,12 @@
 .hospital-item:hover h2,
 .hospital-item:hover p,
 .hospital-item:hover .location {
-    color: rgb(227, 54, 54); /* Change the color to your preferred hover color */
+    color: rgb(227, 54, 54);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hospital-list {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
 }

@@ -13,7 +13,7 @@
   }
 }
 
-.blood-inventory-unique {
+.organ-inventory-unique {
   text-align: center;
   padding: 20px;
 }
@@ -67,9 +67,9 @@
 }
 
 .reset-button-unique:hover {
-  background-color: rgb(227, 54, 54); /* Lightens the background */
+  background-color: rgb(227, 54, 54);
   color: #f5deb3;
-  transform: scale(1.05); /* Slightly enlarges the button */
+  transform: scale(1.05);
 }
 
 .inventory-list-unique {
@@ -87,7 +87,6 @@
   margin: 10px;
   width: 400px;
   border-radius: 8px;
-  border-color: sandybrown;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   position: relative;
@@ -110,61 +109,23 @@
   transform: scale(1.1);
 }
 
-.inventory-item-group-unique,
-.inventory-item-bank-unique,
-.inventory-item-contact-unique,
-.inventory-item-email-unique,
-.inventory-item-city-unique {
+.inventory-item-details-unique h2,
+.inventory-item-details-unique p {
   margin: 5px 0;
   transition: color 0.3s ease-in-out;
 }
 
-.inventory-item-unique:hover .inventory-item-group-unique,
-.inventory-item-unique:hover .inventory-item-bank-unique,
-.inventory-item-unique:hover .inventory-item-contact-unique,
-.inventory-item-unique:hover .inventory-item-email-unique,
-.inventory-item-unique:hover .inventory-item-city-unique {
+.inventory-item-unique:hover .inventory-item-details-unique h2,
+.inventory-item-unique:hover .inventory-item-details-unique p {
   color: rgb(227, 54, 54);
 }
 
-@keyframes fadeIn-unique {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.icon-container-unique {
+  color: sandybrown;
+  margin-left: 5px;
 }
 
-.pagination-unique {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination-button-unique {
-  padding: 10px 15px;
-  margin: 0 5px;
-  border: none;
-  background-color: wheat;
-  color: black;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.pagination-button-unique:hover {
-  background-color: #f5deb3;
-}
-
-.favorite-unique {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.favorite-unique svg {
-  color: red;
-}
-
-.inventory-item-city-unique svg {
-  margin-right: 8px;
-  color: green; /* Changed color to green */
+.icon-location-unique {
+  color: green;
+  margin-right: 5px; /* Adjust spacing for icon and text */
 }

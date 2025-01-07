@@ -1,0 +1,73 @@
+/* Container styling */
+.contact-management-container {
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+    background-color: #f7e6d5; /* Wheat background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .contact-management-title {
+    font-size: 2.5rem;
+    color: #000000; /* Sandy brown */
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+
+  .contact-management-title:hover {
+    color: sandybrown;
+  }
+  
+  /* Table styling */
+  .contact-management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fdf5e6; /* Light wheat for table background */
+  }
+  
+  .contact-management-table th,
+  .contact-management-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0cda9;
+  }
+  
+  .contact-management-table th {
+    background-color: #f4a460; /* Sandy brown */
+    width: 1500px;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .contact-management-table tr:nth-child(even) {
+    background-color: #fdf5e6;
+  }
+  
+  .contact-management-table tr:hover {
+    background-color: #f4a460;
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .contact-management-table td {
+    color: #4d2c0c; /* Darker brown for text */
+  }
+  
+  /* Row styling */
+  .contact-row:hover td {
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect for rows */
+  .contact-row:hover {
+    background-color: #deb887; /* Lighter sandy brown on hover */
+    color: #fff;
+  }
+  
